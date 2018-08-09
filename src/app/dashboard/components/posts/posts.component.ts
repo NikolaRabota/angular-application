@@ -6,7 +6,6 @@ import { User } from "../../../user";
 import {Observable} from "rxjs";
 import { Comment } from "../../../comment";
 import { CommentService } from "../../services/comment.service";
-import {log} from "util";
 
 @Component({
   selector: 'app-posts',
