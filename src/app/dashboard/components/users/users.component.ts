@@ -1,11 +1,10 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {User} from '../../../user';
 import {UserService} from "../../services/user.service";
 import {Observable} from "rxjs";
 import { log } from "util";
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
@@ -22,38 +21,38 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.users$ = this.userService.getUsers();
+    this.notDeletedUsers = [];
+    this.users$.subscribe( users => {
+      for (const user of users) {
+        this.notDeletedUsers.push(user);
+      }
+      log(this.notDeletedUsers)
+    });
     this.getUsers();
   }
 
   getUsers(): void {
-    this.notDeletedUsers = [];
     if (this.deletedUsers.length != 0){
-      log(this.notDeletedUsers, 2);
+      this.notDeletedUsers = [];
       this.users$.subscribe( users => {
-        this.insert = true;
         for (const user of users){
+          this.insert = true;
           for (const deletedUser of this.deletedUsers) {
             // @ts-ignore
               if (user.id == deletedUser)
-                            this.insert = false;
+                this.insert = false;
             }
-          if (this.insert)
-            this.notDeletedUsers.push(user);
+          if (this.insert) {
+            // @ts-ignore
+              this.notDeletedUsers.push({user});
+            }
       }
     })}
-    else {
-        this.users$.subscribe( users => {
-          for (const user of users) {
-            this.notDeletedUsers.push(user);
-          }
-          log(this.notDeletedUsers)
-        })
-      }
   }
   onSelect(user: User): void {
     this.selectedUser = user;
   }
-  delete(userid): void{
+  delete(userid: number): void{
     this.deletedUsers.push(userid);
     this.getUsers()
 }
