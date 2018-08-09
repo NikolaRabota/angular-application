@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
         this.notDeletedUsers.push(user);
       }
     });
-    this.getUsers();
+    this.delete(0)
   }
 
   getUsers(): void {
