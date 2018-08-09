@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import {User} from '../../../user';
 import {UserService} from "../../services/user.service";
 import {Observable} from "rxjs";
-import { log } from "util";
 
 @Component({
   selector: 'app-users',
@@ -26,7 +25,6 @@ export class UsersComponent implements OnInit {
       for (const user of users) {
         this.notDeletedUsers.push(user);
       }
-      log(this.notDeletedUsers)
     });
     this.getUsers();
   }
