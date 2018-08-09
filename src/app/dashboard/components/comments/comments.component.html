@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <h2>The comments</h2>
+      <ng-container *ngFor="let comment of comments$ | async">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{comment?.body}}</h5>
+            <p class="card-text">{{comment?.id}}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

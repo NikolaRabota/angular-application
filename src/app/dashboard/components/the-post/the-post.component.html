@@ -1,0 +1,21 @@
+<div *ngIf="post" class="full-width">
+  <h2>{{post?.title | uppercase}}</h2>
+  <div><span>User id: </span>{{post?.userId}}</div>
+  <div><span>id of the post: </span>{{post?.id}}</div>
+  <div>username: {{user.username}}</div>
+  <div><div>Text:</div>
+    <app-inline-edit [(ngModel)]="post" [required]="true" type="text" [_value]="post.body">
+    </app-inline-edit></div>
+  <div>
+    The comments
+    <ng-container *ngFor="let subComment of comments">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h6 class="card-title">Comment: {{subComment.comment?.body}}</h6>
+            <p class="card-text">CommentId: {{subComment.comment?.id}}</p>
+            <p class="card-text">Name: {{subComment.comment?.name}}</p>
+          </div>
+        </div>
+    </ng-container>
+  </div>
+</div>

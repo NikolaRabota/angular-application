@@ -1,0 +1,20 @@
+<div *ngIf="user">
+
+  <h2>{{user?.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{user?.id}}</div>
+  <div><span>real name: </span><app-inline-edit [_value]="user?.name">{{user?.name}}</app-inline-edit></div>
+  <div><span>username: </span><app-inline-edit [_value]="user?.username">{{user?.username}}</app-inline-edit></div>
+  <div><span>email: </span><app-inline-edit [_value]="user?.email">{{user?.email}}</app-inline-edit></div>
+  <div><span>city: </span><app-inline-edit [_value]="user?.address?.city">{{user?.address?.city}}</app-inline-edit></div>
+  <div><span>street: </span><app-inline-edit [_value]="user?.address?.street">{{user?.address.street}}</app-inline-edit></div>
+  <div><span>suite: </span><app-inline-edit [_value]="user?.address.suite">{{user?.address.suite}}</app-inline-edit></div>
+  <div><span>longitude: </span><app-inline-edit [_value]="user?.address.geo.lng">{{user?.address.geo.lng}}</app-inline-edit></div>
+  <div><span>latitude: </span><app-inline-edit [_value]="user?.address.geo.lat">{{user?.address.geo.lat}}</app-inline-edit></div>
+  <div><span>phone: </span><app-inline-edit [_value]="user?.phone">{{user?.phone}}</app-inline-edit></div>
+  <div><span>website: </span><app-inline-edit [_value]="user?.website">{{user?.website}}</app-inline-edit></div>
+  <div>company info:</div>
+  <div><span>name of the company: </span><app-inline-edit [_value]="user?.company.name">{{user?.company.name}}</app-inline-edit></div>
+  <div><span>company catchphrase: </span><app-inline-edit [_value]="user?.company.catchPhrase">{{user?.company.catchPhrase}}</app-inline-edit></div>
+  <div><span>bs: </span><app-inline-edit [_value]="user?.company.bs">{{user?.company.bs}}</app-inline-edit></div>
+
+</div>
