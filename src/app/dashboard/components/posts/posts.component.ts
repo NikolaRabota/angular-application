@@ -40,7 +40,6 @@ export class PostsComponent implements OnInit {
   })}
 
   onSelect(post: Post, user: User): void {
-    log(this.commentsOnPost);
     this.selectedPost = post;
     this.selectedUser = user;
     this.comments$.subscribe(comments => {
