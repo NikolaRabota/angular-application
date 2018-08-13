@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {User} from '../../../user';
 import {UserService} from "../../services/user.service";
 import {Observable} from "rxjs";
+import {log} from "util";
 
 @Component({
   selector: 'app-users',
@@ -23,10 +24,10 @@ export class UsersComponent implements OnInit {
     this.notDeletedUsers = [];
     this.users$.subscribe( users => {
       for (const user of users) {
-        this.notDeletedUsers.push(user);
+        // @ts-ignore
+        this.notDeletedUsers.push({user});
       }
     });
-    this.delete(0)
   }
 
   getUsers(): void {
@@ -51,8 +52,12 @@ export class UsersComponent implements OnInit {
     this.selectedUser = user;
   }
   delete(userid: number): void{
+    log(this.notDeletedUsers, 14);
     this.deletedUsers.push(userid);
-    this.getUsers()
+    this.getUsers();
+    // @ts-ignore
+    if (this.selectedUser.id == userid)
+      this.selectedUser = null
 }
 
 }
