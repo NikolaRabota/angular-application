@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import {User} from '../../../user';
 import {UserService} from "../../services/user.service";
 import {Observable} from "rxjs";
-import {log} from "util";
 
 @Component({
   selector: 'app-users',
@@ -12,7 +11,6 @@ import {log} from "util";
 export class UsersComponent implements OnInit {
 
   users$: Observable<User[]>;
-  selectedUser: User;
   deletedUsers = [];
   notDeletedUsers: User[];
   private insert: boolean;
@@ -48,16 +46,8 @@ export class UsersComponent implements OnInit {
       }
     })}
   }
-  onSelect(user: User): void {
-    this.selectedUser = user;
-  }
   delete(userid: number): void{
-    log(this.notDeletedUsers, 14);
     this.deletedUsers.push(userid);
     this.getUsers();
-    // @ts-ignore
-    if (this.selectedUser.id == userid)
-      this.selectedUser = null
 }
-
 }
