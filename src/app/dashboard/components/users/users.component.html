@@ -5,21 +5,17 @@
       <h2>The users</h2>
       <ng-container *ngFor="let subUser of notDeletedUsers">
         <div class="userCard" style="width: 18rem;">
-          <div class="col-6">
+          <div class="col-6 full-width">
             <div class="userCard-body">
               <h5 class="card-title">username: {{subUser?.user?.username}}</h5>
               <p class="card-text">id: {{subUser?.user?.id}}</p>
-              <a (click)="onSelect(subUser?.user)" class="btn btn-primary">Data of user</a>
               <a (click)="delete(subUser?.user?.id)" class="btn btn-primary">Delete user</a>
+              <a routerLink="/users/user/{{subUser?.user?.id}}" class="btn btn-primary">User data
+              </a>
             </div>
           </div>
         </div>
       </ng-container>
-    </div>
-
-    <div class="col-7">
-      <app-user-detail [user]="selectedUser">
-      </app-user-detail>
     </div>
 
   </div>
