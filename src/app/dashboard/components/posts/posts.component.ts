@@ -19,33 +19,30 @@ export class PostsComponent implements OnInit {
   comments$: Observable<Comment[]>;
   selectedPost: Post;
   selectedUser: User;
-  commentsOnPost = [];
   latestComments: Comment[];
 
-  constructor(private postService: PostService,private userService: UserService, private commentService: CommentService) { }
+  constructor(private postService: PostService, private userService: UserService, private commentService: CommentService) {
+  }
 
   ngOnInit() {
     this.users$ = this.userService.getUsers();
     this.comments$ = this.commentService.getComments();
     this.posts$ = this.postService.getPosts();
-    this.comments$.subscribe( comments => {
+    this.comments$.subscribe(comments => {
       this.latestComments = [];
       for (const comment of comments.slice().reverse()) {
-      // @ts-ignore
+        // @ts-ignore
         if (comment.id >= comments.length - 4) {
           // @ts-ignore
           this.latestComments.push({comment})
-        }}
-  })}
+        }
+      }
+    })
+  }
 
   onSelect(post: Post, user: User): void {
     this.selectedPost = post;
     this.selectedUser = user;
-    this.comments$.subscribe(comments => {
-      this.commentsOnPost = [];
-      for (const comment of comments) {
-        // @ts-ignore
-        if (comment.postId == post.id)
-          this.commentsOnPost.push({comment})}});
+
   }
 }
