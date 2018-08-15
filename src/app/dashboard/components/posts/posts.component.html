@@ -1,26 +1,20 @@
 <div class="container full-width">
   <div class="row full-width">
-
     <div class="col-5">
       <h2>The posts</h2>
       <ng-container *ngFor="let post of posts$ | async">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">{{post.title}}</h5>
-            <p class="card-text">{{post.id}}</p>
+            <h5 class="card-title">{{post?.title}}</h5>
+            <p class="card-text">{{post?.id}}</p>
           </div>
         </div>
         <ng-container *ngFor="let user of users$ | async">
-          <div *ngIf="user.id == post.userId">
-            <a (click)="onSelect(post, user)" class="btn btn-primary">Read post</a>
+          <div *ngIf="user?.id == post?.userId">
+            <a routerLink="/posts/post/{{post?.id}}" class="btn btn-primary">Read post</a>
           </div>
           </ng-container>
       </ng-container>
-    </div>
-
-    <div class="col-7">
-      <app-the-post [post]="selectedPost" [user]="selectedUser" [comments]="commentsOnPost">
-      </app-the-post>
     </div>
 
     <div class="col-9 full-width">
@@ -28,9 +22,9 @@
       <ng-container *ngFor="let subComment of latestComments">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h6 class="card-title">Comment: {{subComment.comment?.body}}</h6>
-            <p class="card-text">CommentId: {{subComment.comment?.id}}</p>
-            <p class="card-text">Name: {{subComment.comment?.name}}</p>
+            <h6 class="card-title">Comment: {{subComment?.comment?.body}}</h6>
+            <p class="card-text">CommentId: {{subComment?.comment?.id}}</p>
+            <p class="card-text">Name: {{subComment?.comment?.name}}</p>
           </div>
         </div>
       </ng-container>
@@ -40,4 +34,5 @@
     </div>
 
   </div>
+
 </div>
