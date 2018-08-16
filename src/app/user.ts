@@ -14,7 +14,6 @@ export interface subUser {
     geo: {
       lat: string;
       lng: string;
-
     };
   };
   phone: string;

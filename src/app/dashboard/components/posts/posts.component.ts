@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {Post} from "../../../post";
 import {PostService} from "../../services/post.service";
 import { UserService } from "../../services/user.service";
 import { User } from "../../../user";
 import {Observable} from "rxjs";
-import { Comment } from "../../../comment";
 import { CommentService } from "../../services/comment.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-posts',
@@ -16,33 +16,16 @@ export class PostsComponent implements OnInit {
 
   posts$: Observable<Post[]>;
   users$: Observable<User[]>;
-  comments$: Observable<Comment[]>;
-  selectedPost: Post;
-  selectedUser: User;
-  latestComments: Comment[];
+  page: number;
+  @Input() forUserProfile: number;
 
-  constructor(private postService: PostService, private userService: UserService, private commentService: CommentService) {
+  constructor(private postService: PostService, private userService: UserService, private commentService: CommentService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.users$ = this.userService.getUsers();
-    this.comments$ = this.commentService.getComments();
     this.posts$ = this.postService.getPosts();
-    this.comments$.subscribe(comments => {
-      this.latestComments = [];
-      for (const comment of comments.slice().reverse()) {
-        // @ts-ignore
-        if (comment.id >= comments.length - 4) {
-          // @ts-ignore
-          this.latestComments.push({comment})
-        }
-      }
-    })
-  }
-
-  onSelect(post: Post, user: User): void {
-    this.selectedPost = post;
-    this.selectedUser = user;
-
+    this.page = +this.route.snapshot.paramMap.get('page');
   }
 }

@@ -11,6 +11,7 @@ import { PostDetailComponent } from './dashboard/components/the-post/the-post.co
 import { CommentsComponent } from './dashboard/components/comments/comments.component';
 import { HttpClientModule } from "@angular/common/http";
 import { InlineEditComponent } from './dashboard/components/inline-edit/inline-edit.component';
+import { LatestCommentsComponent } from './dashboard/components/comments/latestcomments/latestcomments.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { InlineEditComponent } from './dashboard/components/inline-edit/inline-e
     PostsComponent,
     CommentsComponent,
     InlineEditComponent,
+    LatestCommentsComponent,
   ],
   imports: [
     BrowserModule,

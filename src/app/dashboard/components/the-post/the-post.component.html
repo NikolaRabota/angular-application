@@ -1,13 +1,18 @@
-  <h2>{{post$?.title | uppercase}}</h2>
-  <div><span>User id: </span>{{post$?.userId}}</div>
-  <div><span>id of the post: </span>{{post$?.id}}</div>
-  <div>username: {{user?.username}}</div>
-  <div><div>Text:</div>
-    <app-inline-edit [(ngModel)]="post$" [required]="true" type="text" [_value]="post$?.body">
-    </app-inline-edit></div>
-  <div>
-    The comments
-    <ng-container *ngFor="let subComment of commentsOnPost">
+<div class="row full-width">
+  <div class="col-5">
+    <h2>{{post$?.title | uppercase}}</h2>
+    <div><span>User id: </span>{{post$?.userId}}</div>
+    <a routerLink="/users/user/{{post$?.userId}}">View user profile</a>
+    <div><span>id of the post: </span>{{post$?.id}}</div>
+    <div>username: {{user?.username}}</div>
+    <div>
+      <div>Text:</div>
+      <app-inline-edit [(ngModel)]="post$" [required]="true" type="text" [_value]="post$?.body">
+      </app-inline-edit>
+    </div>
+    <div>
+      The comments
+      <ng-container *ngFor="let subComment of commentsOnPost">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h6 class="card-title">Comment: {{subComment?.body}}</h6>
@@ -15,5 +20,11 @@
             <p class="card-text">Name: {{subComment?.name}}</p>
           </div>
         </div>
-    </ng-container>
+      </ng-container>
+    </div>
   </div>
+  <div class="col-7">
+    <app-latestcomments></app-latestcomments>
+  </div>
+</div>
+

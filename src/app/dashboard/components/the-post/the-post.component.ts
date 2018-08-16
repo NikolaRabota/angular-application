@@ -7,6 +7,7 @@ import {PostService} from "../../services/post.service";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {CommentService} from "../../services/comment.service";
+import {log} from "util";
 
 
 @Component({
@@ -36,7 +37,7 @@ export class PostDetailComponent implements OnInit {
     };
   getUser(): void{
     // @ts-ignore
-    this.userService.getUser(this.post$.id).subscribe( user => {
+    this.userService.getUser(this.post$.userId).subscribe( user => {
       this.user = user;
       this.getCommentsOnPost()
     })

@@ -1,38 +1,56 @@
-<div class="container full-width">
-  <div class="row full-width">
-    <div class="col-5">
-      <h2>The posts</h2>
-      <ng-container *ngFor="let post of posts$ | async">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{post?.title}}</h5>
-            <p class="card-text">{{post?.id}}</p>
-          </div>
-        </div>
-        <ng-container *ngFor="let user of users$ | async">
-          <div *ngIf="user?.id == post?.userId">
-            <a routerLink="/posts/post/{{post?.id}}" class="btn btn-primary">Read post</a>
-          </div>
-          </ng-container>
-      </ng-container>
-    </div>
-
-    <div class="col-9 full-width">
-      The latest comments
-      <ng-container *ngFor="let subComment of latestComments">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h6 class="card-title">Comment: {{subComment?.comment?.body}}</h6>
-            <p class="card-text">CommentId: {{subComment?.comment?.id}}</p>
-            <p class="card-text">Name: {{subComment?.comment?.name}}</p>
-          </div>
-        </div>
-      </ng-container>
+<div *ngIf="!forUserProfile">
+  <div *ngIf="page > 1">
+    <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary">Previous page</a>
+  </div>
+  <div *ngIf="page < (posts$ | async).length / 10">
+    <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary">Next page</a>
+  </div>
+  <div class="container full-width">
+    <div class="row full-width">
+      <div class="col-5">
+        <h2>The posts</h2>
+        <ng-container *ngFor="let post of posts$ | async">
+            <div *ngIf="post.id >= page*10-9 && post.id <= page*10">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{post?.title}}</h5>
+                  <p class="card-text">{{post?.id}}</p>
+                </div>
+              </div>
+              <ng-container *ngFor="let user of users$ | async">
+                <div *ngIf="user?.id == post?.userId">
+                  <a routerLink="/posts/post/{{post?.id}}" class="btn btn-primary">Read post</a>
+                </div>
+              </ng-container>
+            </div>
+        </ng-container>
+      </div>
       <div class="col-7">
-        <a routerLink="/comments">View all comments</a>
+        <app-latestcomments></app-latestcomments>
       </div>
     </div>
-
   </div>
-
+  <div *ngIf="page > 1">
+    <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary">Previous page</a>
+  </div>
+  <div *ngIf="page < (posts$ | async).length / 10">
+    <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary">Next page</a>
+  </div>
+</div>
+<div *ngIf="forUserProfile">
+  <ng-container *ngFor="let post of posts$ | async">
+    <div *ngIf="post.userId == forUserProfile">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{post?.title}}</h5>
+          <p class="card-text">{{post?.id}}</p>
+        </div>
+      </div>
+      <ng-container *ngFor="let user of users$ | async">
+        <div *ngIf="user?.id == post?.userId">
+          <a routerLink="/posts/post/{{post?.id}}" class="btn btn-primary">Read post</a>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
 </div>
