@@ -12,6 +12,7 @@ import { CommentsComponent } from './dashboard/components/comments/comments.comp
 import { HttpClientModule } from "@angular/common/http";
 import { InlineEditComponent } from './dashboard/components/inline-edit/inline-edit.component';
 import { LatestCommentsComponent } from './dashboard/components/comments/latestcomments/latestcomments.component';
+import { LatestPostsComponent } from './dashboard/components/posts/latest-posts/latest-posts.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LatestCommentsComponent } from './dashboard/components/comments/latestc
     CommentsComponent,
     InlineEditComponent,
     LatestCommentsComponent,
+    LatestPostsComponent,
   ],
   imports: [
     BrowserModule,

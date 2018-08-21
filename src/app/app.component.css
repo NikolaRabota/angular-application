@@ -26,3 +26,11 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+.navBarTop{
+  top: 0;
+}
+.site-footer{
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}

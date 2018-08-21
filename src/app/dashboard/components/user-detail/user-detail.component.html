@@ -1,50 +1,81 @@
 <div *ngIf="user$">
-  <div class="col-3">
-    <h2>{{user$?.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{user$?.id}}</div>
-    <div><span>real name: </span>
-      <app-inline-edit [_value]="user$?.name">{{user$?.name}}</app-inline-edit>
+  <div class="theUser col-5">
+    <h2>{{user$?.name | uppercase}}</h2>
+    <div class="card" style="width: 18rem;height: 7rem">
+      <div><span>id: </span>{{user$?.id}}</div>
+      <div>ID is given upon account creation and can't be changed</div>
     </div>
-    <div><span>username: </span>
-      <app-inline-edit [_value]="user$?.username">{{user$?.username}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>real name: </span>
+        <app-inline-edit [_value]="user$?.name">{{user$?.name}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>email: </span>
-      <app-inline-edit [_value]="user$?.email">{{user$?.email}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>username: </span>
+        <app-inline-edit [_value]="user$?.username">{{user$?.username}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>city: </span>
-      <app-inline-edit [_value]="user$?.address?.city">{{user$?.address?.city}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>email: </span>
+        <app-inline-edit [_value]="user$?.email">{{user$?.email}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>street: </span>
-      <app-inline-edit [_value]="user$?.address?.street">{{user$?.address.street}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>city: </span>
+        <app-inline-edit [_value]="user$?.address?.city">{{user$?.address?.city}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>suite: </span>
-      <app-inline-edit [_value]="user$?.address.suite">{{user$?.address.suite}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>street: </span>
+        <app-inline-edit [_value]="user$?.address?.street">{{user$?.address.street}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>longitude: </span>
-      <app-inline-edit [_value]="user$?.address.geo.lng">{{user$?.address.geo.lng}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>suite: </span>
+        <app-inline-edit [_value]="user$?.address.suite">{{user$?.address.suite}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>latitude: </span>
-      <app-inline-edit [_value]="user$?.address.geo.lat">{{user$?.address.geo.lat}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>longitude: </span>
+        <app-inline-edit [_value]="user$?.address.geo.lng">{{user$?.address.geo.lng}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>phone: </span>
-      <app-inline-edit [_value]="user$?.phone">{{user$?.phone}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>latitude: </span>
+        <app-inline-edit [_value]="user$?.address.geo.lat">{{user$?.address.geo.lat}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>website: </span>
-      <app-inline-edit [_value]="user$?.website">{{user$?.website}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>phone: </span>
+        <app-inline-edit [_value]="user$?.phone">{{user$?.phone}}</app-inline-edit>
+      </div>
     </div>
-    <div>company info:</div>
-    <div><span>name of the company: </span>
-      <app-inline-edit [_value]="user$?.company.name">{{user$?.company.name}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>website: </span>
+        <app-inline-edit [_value]="user$?.website">{{user$?.website}}</app-inline-edit>
+      </div>
     </div>
-    <div><span>company catchphrase: </span>
-      <app-inline-edit [_value]="user$?.company.catchPhrase">{{user$?.company.catchPhrase}}</app-inline-edit>
+    <div class="card" style="width: 18rem; height: 5rem">
+    <div>Information about the company for which the user works</div>
     </div>
-    <div><span>bs: </span>
-      <app-inline-edit [_value]="user$?.company.bs">{{user$?.company.bs}}</app-inline-edit>
+    <div class="card" style="width: 18rem">
+      <div><span>name of the company: </span>
+        <app-inline-edit [_value]="user$?.company.name">{{user$?.company.name}}</app-inline-edit>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem">
+      <div><span>company catchphrase: </span>
+        <app-inline-edit [_value]="user$?.company.catchPhrase">{{user$?.company.catchPhrase}}</app-inline-edit>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem">
+      <div><span>bs: </span>
+        <app-inline-edit [_value]="user$?.company.bs">{{user$?.company.bs}}</app-inline-edit>
+      </div>
     </div>
   </div>
-  <div class="col-5">
-    <app-posts [forUserProfile]="+(user$?.id)"></app-posts>
-  </div>
-
+</div>
+<div class="UserPosts-Comments">
+  <h2>Posts written by {{user$?.username}}</h2>
+  <app-posts [forUserProfile]="+(user$?.id)"></app-posts>
 </div>

@@ -1,4 +1,4 @@
-<div *ngIf="!forUserProfile">
+<div *ngIf="!forUserProfile" class="thePosts col-5">
   <div *ngIf="page > 1">
     <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary">Previous page</a>
   </div>
@@ -6,27 +6,24 @@
     <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary">Next page</a>
   </div>
   <div class="container full-width">
-    <div class="row full-width">
+    <div class="row">
       <div class="col-5">
         <h2>The posts</h2>
         <ng-container *ngFor="let post of posts$ | async">
-            <div *ngIf="post.id >= page*10-9 && post.id <= page*10">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">{{post?.title}}</h5>
-                  <p class="card-text">{{post?.id}}</p>
-                </div>
+          <div *ngIf="post.id >= page*10-9 && post.id <= page*10">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{post?.title}}</h5>
+                <p class="card-text">{{post?.id}}</p>
               </div>
-              <ng-container *ngFor="let user of users$ | async">
-                <div *ngIf="user?.id == post?.userId">
-                  <a routerLink="/posts/post/{{post?.id}}" class="btn btn-primary">Read post</a>
-                </div>
-              </ng-container>
             </div>
+            <ng-container *ngFor="let user of users$ | async">
+              <div *ngIf="user?.id == post?.userId">
+                <a routerLink="/posts/post/{{post?.id}}" class="btn btn-primary">Read post</a>
+              </div>
+            </ng-container>
+          </div>
         </ng-container>
-      </div>
-      <div class="col-7">
-        <app-latestcomments></app-latestcomments>
       </div>
     </div>
   </div>
@@ -36,6 +33,9 @@
   <div *ngIf="page < (posts$ | async).length / 10">
     <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary">Next page</a>
   </div>
+</div>
+<div class="latestComments">
+  <app-latestcomments></app-latestcomments>
 </div>
 <div *ngIf="forUserProfile">
   <ng-container *ngFor="let post of posts$ | async">

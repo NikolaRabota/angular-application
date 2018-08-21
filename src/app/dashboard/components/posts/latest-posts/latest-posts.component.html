@@ -1,0 +1,10 @@
+<div class="col-9 full-width">
+  The latest posts
+  <ng-container *ngFor="let post of latestPosts">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <a routerLink="/posts/post/{{post?.post?.id}}">{{post?.post?.title}}</a>
+      </div>
+    </div>
+  </ng-container>
+</div>

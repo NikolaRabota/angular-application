@@ -1,3 +1,15 @@
 .full-width{
   max-width: 100% !important;
 }
+.thePosts {
+  position: relative;
+  left: 20%;
+  right: 20%;
+}
+
+.latestComments{
+  position: absolute;
+  right: 5%;
+  left: 60%;
+  top: 15%;
+}
