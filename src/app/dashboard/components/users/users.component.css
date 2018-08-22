@@ -12,3 +12,32 @@
   left: 60%;
   right: 20%;
 }
+@media all and (max-width: 640px){
+  .latestPosts{
+    display: none;
+  }
+  .Users{
+    right: 0;
+    left: 0;
+  }
+}
+@media all and (min-width: 640px) and (max-width: 1028px){
+  .Users{
+    right:0;
+    left:0;
+  }
+  .latestPosts{
+    right: 0;
+    left: 50%;
+  }
+}
+@media all and (max-height: 420px){
+  .latestPosts{
+    top: 70px;
+  }
+}
+@media all and (max-height: 640px) and (max-width: 766px){
+  .latestPosts{
+    top: 100px;
+  }
+}

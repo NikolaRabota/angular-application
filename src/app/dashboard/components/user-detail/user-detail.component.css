@@ -2,9 +2,40 @@
   right: 80%;
   left: 10%;
 }
-.UserPosts-Comments{
+.UserPosts{
   position: absolute;
   right: 0%;
   left: 45%;
   top: 10%;
+}
+@media all and (max-width: 640px){
+  .UserPosts{
+    position: relative;
+    right: 0;
+    left: 0;
+  }
+  .theUser{
+    right: 0;
+    left: 0;
+  }
+}
+@media all and (min-width: 640px) and (max-width: 1028px){
+  .UserPosts{
+    left: 350px;
+    right: 0;
+    top: 100px;
+  }
+  .theUser{
+    left:0;
+  }
+}
+@media all and (max-height: 279px){
+  .UserPosts{
+    top: 100px;
+  }
+}
+@media all and (max-height: 580px) and (min-width: 640px){
+  .UserPosts{
+    top: 100px;
+  }
 }

@@ -13,3 +13,26 @@
   left: 60%;
   top: 15%;
 }
+@media all and (max-width: 640px){
+  .latestComments{
+    display: none;
+  }
+  .thePosts{
+    position: relative;
+    left: 0;
+    right: 50px;
+  }
+}
+@media all and (max-height: 640px){
+  .latestComments{
+    top: 100px;
+  }
+}
+@media all and (min-width: 640px) and (max-width: 1028px){
+  .thePosts{
+    left: 0;
+  }
+  .latestComments{
+    left: 50%;
+  }
+}
