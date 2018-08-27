@@ -1,11 +1,11 @@
-<div class="Users col-5">
+<div class="Users col-4">
       <h2>The users</h2>
       <ng-container *ngFor="let subUser of notDeletedUsers">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 100%;">
             <div class="card-body">
               <h5 class="card-title">username: {{subUser?.user?.username}}</h5>
               <p class="card-text">id: {{subUser?.user?.id}}</p>
-              <a (click)="delete(subUser?.user?.id)" class="btn btn-primary">Delete user</a>
+              <a (click)="confirmation()" class="btn btn-primary">Delete user</a>
               <a routerLink="/users/user/{{subUser?.user?.id}}" class="btn btn-primary">User data
               </a>
           </div>

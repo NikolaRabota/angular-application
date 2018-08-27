@@ -18,6 +18,7 @@ export class PostsComponent implements OnInit {
   users$: Observable<User[]>;
   page: number;
   @Input() forUserProfile: number;
+  @Input() forLatestComment: number;
 
   constructor(private postService: PostService, private userService: UserService, private commentService: CommentService,
               private route: ActivatedRoute) {

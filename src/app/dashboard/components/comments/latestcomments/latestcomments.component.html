@@ -1,14 +1,11 @@
-<div class="col-9 full-width">
+<div class="comments col-5">
   <h3>The latest comments on our posts</h3>
   <ng-container *ngFor="let subComment of latestComments">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h6 class="card-title">Comment: {{subComment?.comment?.body}}</h6>
-        <p class="card-text">Name: {{subComment?.comment?.name}}</p>
+        <app-posts [forLatestComment]="subComment?.comment?.postId"></app-posts>
       </div>
     </div>
   </ng-container>
-  <div class="col-7">
-    <a routerLink="/comments">View all comments</a>
-  </div>
 </div>

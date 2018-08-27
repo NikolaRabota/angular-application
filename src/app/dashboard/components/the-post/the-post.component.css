@@ -4,13 +4,13 @@
 .thePost{
   right: 20%;
   left: 25%;
-  background: #6c757d;
+  background: #ced4da;
 }
 .latestComments{
   position: absolute;
   right: 5%;
   left: 70%;
-  top: 15%;
+  top: 10%;
 }
 @media all and (max-width: 640px){
   .latestComments{
@@ -23,6 +23,7 @@
   }
   h2{
     font-size: small;
+    font-weight: bold;
   }
 }
 @media all and (max-height: 640px){

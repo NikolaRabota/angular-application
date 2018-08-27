@@ -1,11 +1,14 @@
 .theUser{
   right: 80%;
-  left: 10%;
+  left: 30%;
+}
+h2{
+  color: #17a2b8;
 }
 .UserPosts{
   position: absolute;
-  right: 0%;
-  left: 45%;
+  right: 0;
+  left: 60%;
   top: 10%;
 }
 @media all and (max-width: 640px){

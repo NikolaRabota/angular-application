@@ -4,13 +4,14 @@
 .thePosts {
   position: relative;
   left: 20%;
-  right: 20%;
+  right: 30%;
+  background: #ced4da;
 }
 
 .latestComments{
   position: absolute;
   right: 5%;
-  left: 60%;
+  left: 70%;
   top: 15%;
 }
 @media all and (max-width: 640px){

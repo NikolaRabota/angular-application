@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { InlineEditComponent } from './dashboard/components/inline-edit/inline-edit.component';
 import { LatestCommentsComponent } from './dashboard/components/comments/latestcomments/latestcomments.component';
 import { LatestPostsComponent } from './dashboard/components/posts/latest-posts/latest-posts.component';
+import { ConfirmationDialogueComponent } from './dashboard/components/confirmation-dialogue/confirmation-dialogue.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LatestPostsComponent } from './dashboard/components/posts/latest-posts/
     InlineEditComponent,
     LatestCommentsComponent,
     LatestPostsComponent,
+    ConfirmationDialogueComponent,
   ],
   imports: [
     BrowserModule,

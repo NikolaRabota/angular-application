@@ -1,6 +1,6 @@
 <div>
-  <div *ngIf="editing" class="full-width">
-    <input class="inline-edit full-width" [required]="required" (blur)="onBlur()" [name]="value" [(ngModel)]="value" [type]="type" [placeholder]="label" />
+  <div *ngIf="editing" class="editingClass full-width">
+    <input class="inline-edit full-width" [required]="required" (blur)="onBlur()" [name]="value" [(ngModel)]="value" [type]="type" [placeholder]="label"/>
   </div>
   <div *ngIf="!editing">
     <label class="block bold full-width">{{label}}</label>

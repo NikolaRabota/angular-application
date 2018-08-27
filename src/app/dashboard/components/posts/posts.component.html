@@ -1,4 +1,4 @@
-<div *ngIf="!forUserProfile">
+<div *ngIf="!forUserProfile && !forLatestComment">
   <div *ngIf="page > 1">
     <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary">Previous page</a>
   </div>
@@ -11,7 +11,7 @@
         <h2>The posts</h2>
         <ng-container *ngFor="let post of posts$ | async">
           <div *ngIf="post.id >= page*10-9 && post.id <= page*10">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 250%">
               <div class="card-body">
                 <h5 class="card-title">{{post?.title}}</h5>
                 <p class="card-text">{{post?.id}}</p>
@@ -51,6 +51,14 @@
           <a routerLink="/posts/post/{{post?.id}}" class="btn btn-primary">Read post</a>
         </div>
       </ng-container>
+    </div>
+  </ng-container>
+</div>
+<div *ngIf="forLatestComment">
+  <ng-container *ngFor="let post of posts$ | async">
+    <div *ngIf="post.id == forLatestComment">
+      View the post:
+      <a routerLink="/posts/post/{{post.id}}">{{post?.title}}</a>
     </div>
   </ng-container>
 </div>

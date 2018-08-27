@@ -10,7 +10,7 @@
     <div class="CommentsOnPost">
       <h2>The comments on {{post$?.title}}</h2>
       <ng-container *ngFor="let subComment of commentsOnPost">
-        <div class="card" style="width: 70%">
+        <div class="card" style="width: 80%; height: 9rem">
           <div class="card-body">
             <h6 class="card-title">Comment: {{subComment?.body}}</h6>
             <p class="card-text">Name: {{subComment?.name}}</p>

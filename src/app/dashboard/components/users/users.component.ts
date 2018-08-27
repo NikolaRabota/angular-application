@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {User} from '../../../user';
 import {UserService} from "../../services/user.service";
 import {Observable} from "rxjs";
+import { ConfirmationDialogService } from "../../services/confirmation-dialogue.service";
 
 @Component({
   selector: 'app-users',
@@ -15,7 +16,7 @@ export class UsersComponent implements OnInit {
   notDeletedUsers: User[];
   private insert: boolean;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private confirmationDialogService: ConfirmationDialogService) { }
 
   ngOnInit() {
     this.users$ = this.userService.getUsers();
@@ -45,6 +46,11 @@ export class UsersComponent implements OnInit {
             }
       }
     })}
+  }
+  confirmation(): void {
+    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+      .then((confirmed) => console.log('User confirmed:', confirmed))
+      .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
   }
   delete(userid: number): void{
     this.deletedUsers.push(userid);
