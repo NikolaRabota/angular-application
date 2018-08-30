@@ -21,7 +21,8 @@
   .thePosts{
     position: relative;
     left: 0;
-    right: 50px;
+    right: 0;
+    max-width: 100%;
   }
 }
 @media all and (max-height: 640px){

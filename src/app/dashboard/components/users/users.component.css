@@ -1,16 +1,18 @@
 .full-width{
   max-width: 100% !important;
 }
+h3{
+  color: #9fcdff;
+}
 .Users{
-  position: relative;
-  left: 20%;
-  right: 60%;
+  left: 10%;
+  right: 10%;
   background: #ced4da;
+  max-width: 80%;
 }
 .latestPosts{
-  position: absolute;
   top: 15%;
-  left: 60%;
+  left: 50%;
   right: 20%;
 }
 @media all and (max-width: 640px){

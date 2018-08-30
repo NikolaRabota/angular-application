@@ -5,7 +5,7 @@
   <div *ngIf="page < (posts$ | async).length / 10">
     <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary">Next page</a>
   </div>
-  <div class="container full-width" class="thePosts col-5">
+  <div class="container" class="thePosts col-5">
     <div class="row">
       <div class="col-5">
         <h2>The posts</h2>

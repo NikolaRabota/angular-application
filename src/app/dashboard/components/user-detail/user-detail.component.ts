@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, ChangeDetectionStrategy} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import { User} from "../../../user";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute} from "@angular/router";
