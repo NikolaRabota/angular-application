@@ -1,9 +1,9 @@
 <div *ngIf="!forUserProfile && !forLatestComment">
   <div *ngIf="page > 1">
-    <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary">Previous page</a>
+    <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary" onclick="setTimeout(function(){ window.location.reload()}, 100)">Previous page</a>
   </div>
   <div *ngIf="page < (posts$ | async).length / 10">
-    <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary">Next page</a>
+    <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary" onclick="setTimeout(function(){ window.location.reload()}, 100)">Next page</a>
   </div>
   <div class="container">
     <div class="row">
@@ -31,10 +31,10 @@
     </div>
   </div>
   <div *ngIf="page > 1">
-    <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary">Previous page</a>
+    <a routerLink="/posts/{{page - 1}}" class="btn btn-secondary" onclick="setTimeout(function(){ window.location.reload()}, 100)">Previous page</a>
   </div>
   <div *ngIf="page < (posts$ | async).length / 10">
-    <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary">Next page</a>
+    <a routerLink="/posts/{{page + 1}}" class="btn btn-secondary" onclick="setTimeout(function(){ window.location.reload()}, 100)">Next page</a>
   </div>
 </div>
 <div *ngIf="forUserProfile">
@@ -58,7 +58,7 @@
   <ng-container *ngFor="let post of posts$ | async">
     <div *ngIf="post.id == forLatestComment">
       View the post:
-      <a routerLink="/posts/post/{{post.id}}">{{post?.title}}</a>
+      <a routerLink="/posts/post/{{post.id}}" onclick="setTimeout(function(){ window.location.reload()}, 100)">{{post?.title}}</a>
     </div>
   </ng-container>
 </div>

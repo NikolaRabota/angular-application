@@ -58,21 +58,17 @@ export class InlineEditComponent implements ControlValueAccessor, OnInit {
   public registerOnTouched(fn: () => {}): void {
     this.onTouched = fn;
   }
-
   onBlur() {
     this.editing = false;
   }
-
   edit(value) {
     if (this.disabled) {
       return;
     }
-
     this.preValue = value;
     this.editing = true;
     // Focus on the input element just as the editing begins
     setTimeout(_ => this.renderer.invokeElementMethod(this.inlineEditControl,
       'focus', []));
   }
-
 }
