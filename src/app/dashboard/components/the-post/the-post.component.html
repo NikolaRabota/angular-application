@@ -6,7 +6,7 @@
       <div>writer: {{user?.username}}</div>
       <a routerLink="/users/user/{{post$?.userId}}">View {{user?.username}}'s profile</a>
       <div>
-        <app-inline-edit [(ngModel)]="post$" [required]="true" type="text" [_value]="post$?.body">
+        <app-inline-edit [required]="true" type="text" [_value]="post$?.body">
         </app-inline-edit>
       </div>
       <div class="CommentsOnPost">
