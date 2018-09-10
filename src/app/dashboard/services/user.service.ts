@@ -13,7 +13,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     // @ts-ignore
-    return this.http.get('https://jsonplaceholder.typicode.com/users/')
+    return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
   getUser(id: number): Observable<User> {
     // @ts-ignore
